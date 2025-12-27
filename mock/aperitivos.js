@@ -1,0 +1,261 @@
+export const aperitivos = [
+    {
+      id: 1,
+      name: "Fernet Branca 750cc",
+      price: 0,
+      image: "/images/aperitivos/branca-750.webp",
+    },
+    {
+      id: 2,
+      name: "Fernet Branca 1L",
+      price: 0,
+      image: "/images/aperitivos/branca-1l.webp",
+    },
+    {
+      id: 3,
+      name: "Fernet Branca 450cc",
+      price: 0,
+      image: "/images/aperitivos/branca-450.webp",
+    },
+    {
+      id: 4,
+      name: "Fernet 1888 750cc",
+      price: 0,
+      image: "/images/aperitivos/fernet-1888.jpeg",
+    },
+  
+    {
+      id: 5,
+      name: "Cinzano Segundo 750cc",
+      price: 0,
+      image: "/images/aperitivos/cinzano-segundo.webp",
+    },
+    {
+      id: 6,
+      name: "Cinzano Rosso 950cc",
+      price: 0,
+      image: "/images/aperitivos/cinzano-rosso.jpeg",
+    },
+    {
+      id: 7,
+      name: "Cynar 750cc",
+      price: 0,
+      image: "/images/aperitivos/cynar.webp",
+    },
+    {
+      id: 8,
+      name: "Carpano Rosso 750cc",
+      price: 0,
+      image: "/images/aperitivos/carpano.png",
+    },
+    {
+      id: 9,
+      name: "Aperol 750cc",
+      price: 0,
+      image: "/images/aperitivos/aperol.webp",
+    },
+    {
+      id: 10,
+      name: "Gancia 950cc",
+      price: 0,
+      image: "/images/aperitivos/gancia.webp",
+    },
+    {
+      id: 11,
+      name: "Campari 750cc",
+      price: 0,
+      image: "/images/aperitivos/campari.jpeg",
+    },
+  
+    {
+      id: 12,
+      name: "Tía María Café 700cc",
+      price: 0,
+      image: "/images/aperitivos/tia-maria-cafe.webp",
+    },
+    {
+      id: 13,
+      name: "Tía María Cream 700cc",
+      price: 0,
+      image: "/images/aperitivos/tia-maria-cream.jpg",
+    },
+    {
+      id: 14,
+      name: "Baileys 700cc",
+      price: 0,
+      image: "/images/aperitivos/baileys.webp",
+    },
+    {
+      id: 15,
+      name: "Malibú Ron 700cc",
+      price: 0,
+      image: "/images/aperitivos/malibu.webp",
+    },
+    {
+      id: 16,
+      name: "Ron Havana 700cc",
+      price: 0,
+      image: "/images/aperitivos/havanna.webp",
+    },
+    {
+      id: 17,
+      name: "Jägermeister 700cc",
+      price: 0,
+      image: "/images/aperitivos/jagger.webp",
+    },
+  
+    {
+      id: 18,
+      name: "Whisky Jack Daniels Honey 700cc",
+      price: 0,
+      image: "/images/aperitivos/jack-honey.webp",
+    },
+    {
+      id: 19,
+      name: "Whisky Jameson 750cc",
+      price: 0,
+      image: "/images/aperitivos/jameson.jpeg",
+    },
+    {
+      id: 20,
+      name: "Whisky Johnnie Walker Black Label 700cc",
+      price: 0,
+      image: "/images/aperitivos/black-label.webp",
+    },
+    {
+      id: 21,
+      name: "Whisky Johnnie Walker Red Label 700cc",
+      price: 0,
+      image: "/images/aperitivos/red-label.webp",
+    },
+  
+    {
+      id: 22,
+      name: "Gin Bombay",
+      price: 0,
+      image: "/images/aperitivos/bombay.webp",
+    },
+    {
+      id: 23,
+      name: "Gin Cuatro y 10",
+      price: 0,
+      image: "/images/aperitivos/cuatro-y-10.jpeg",
+    },
+    {
+      id: 24,
+      name: "Gin Oso Negro",
+      price: 0,
+      image: "/images/aperitivos/oso-negro.webp",
+    },
+    {
+      id: 25,
+      name: "Gin Merle",
+      price: 0,
+      image: "/images/aperitivos/merle.webp",
+    },
+    {
+      id: 26,
+      name: "Gin Gordons",
+      price: 0,
+      image: "/images/aperitivos/gordons.webp",
+    },
+    {
+      id: 27,
+      name: "Gin Casa Rosa de Lavanda",
+      price: 0,
+      image: "/images/aperitivos/lavanda.jpeg",
+    },
+    {
+      id: 28,
+      name: "Gin Príncipe de los Apóstoles Yerba Mate",
+      price: 0,
+      image: "/images/aperitivos/apostoles-mate.webp",
+    },
+  
+    {
+      id: 29,
+      name: "Vodka Smirnoff Raspberry",
+      price: 0,
+      image: "/images/aperitivos/smirnoff-raspberry.webp",
+    },
+    {
+      id: 30,
+      name: "Vodka Smirnoff Green Apple",
+      price: 0,
+      image: "/images/aperitivos/smirnoff-apple.jpg",
+    },
+    {
+      id: 31,
+      name: "Vodka Smirnoff Watermelon",
+      price: 0,
+      image: "/images/aperitivos/smirnoff-watermelon.webp",
+    },
+    {
+      id: 32,
+      name: "Vodka Smirnoff Citric",
+      price: 0,
+      image: "/images/aperitivos/smirnoff-citric.webp",
+    },
+    {
+      id: 33,
+      name: "Vodka Smirnoff Clásico",
+      price: 0,
+      image: "/images/aperitivos/smirnoff-clasico.jpeg",
+    },
+    {
+      id: 34,
+      name: "Vodka Sernova Clásico",
+      price: 0,
+      image: "/images/aperitivos/sernova-clasico.webp",
+    },
+    {
+      id: 35,
+      name: "Vodka Sernova Berries",
+      price: 0,
+      image: "/images/aperitivos/sernova-berry.webp",
+    },
+    {
+      id: 36,
+      name: "Vodka Sernova Citrus",
+      price: 0,
+      image: "/images/aperitivos/sernova-citric.jpeg",
+    },
+    {
+      id: 37,
+      name: "Vodka Skyy Pineapple",
+      price: 0,
+      image: "/images/aperitivos/sky-pineapple.webp",
+    },
+    {
+      id: 38,
+      name: "Vodka Skyy Passion Fruit",
+      price: 0,
+      image: "/images/aperitivos/sky-passion.png",
+    },
+    {
+      id: 39,
+      name: "Vodka Skyy Cosmic",
+      price: 0,
+      image: "/images/aperitivos/sky-cosmic.webp",
+    },
+    {
+      id: 40,
+      name: "Vodka Skyy Raspberry",
+      price: 0,
+      image: "/images/aperitivos/sky-berry.webp",
+    },
+    {
+      id: 41,
+      name: "Vodka Skyy Clásico",
+      price: 0,
+      image: "/images/aperitivos/sky-clasico.webp",
+    },
+  
+    {
+      id: 42,
+      name: "Velho Barreiro Cachaça",
+      price: 0,
+      image: "/images/aperitivos/velho-barreiro.webp",
+    },
+  ];
+  

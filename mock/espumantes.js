@@ -1,0 +1,123 @@
+export const espumantes = [
+    {
+      id: 1,
+      name: "Chandon Brut Nature 750cc",
+      price: 0,
+      image: "/images/espumantes/chandon-brut-nature.jpg",
+    },
+    {
+      id: 2,
+      name: "Chandon Délice 750cc",
+      price: 0,
+      image: "/images/espumantes/chandon-delice.jpeg",
+    },
+    {
+      id: 3,
+      name: "Chandon Extra Brut 750cc",
+      price: 0,
+      image: "/images/espumantes/chandon-extra-brut.webp",
+    },
+    {
+      id: 4,
+      name: "Chandon Demi Sec 750cc",
+      price: 0,
+      image: "/images/espumantes/chandon-demi-sec.png",
+    },
+    {
+      id: 5,
+      name: "Mumm Brut 750cc",
+      price: 0,
+      image: "/images/espumantes/mumm-brut.webp",
+    },
+    {
+      id: 6,
+      name: "Mumm Demi Sec 750cc",
+      price: 0,
+      image: "/images/espumantes/mumm-demi-sec.webp",
+    },
+    {
+      id: 7,
+      name: "Mumm Dulce 750cc",
+      price: 0,
+      image: "/images/espumantes/mumm-dulce.webp",
+    },
+    {
+      id: 8,
+      name: "Callia Dulce 750cc",
+      price: 0,
+      image: "/images/espumantes/callia-dulce.jpg",
+    },
+    {
+      id: 9,
+      name: "Federico de Alvear Extra Brut 750cc",
+      price: 0,
+      image: "/images/espumantes/federico-extra-brut.webp",
+    },
+    {
+      id: 10,
+      name: "Federico de Alvear Dulce 750cc",
+      price: 0,
+      image: "/images/espumantes/federico-dulce.webp",
+    },
+    {
+      id: 11,
+      name: "Federico de Alvear Extra Dulce 750cc",
+      price: 0,
+      image: "/images/espumantes/federico-extra-dulce.webp",
+    },
+    {
+      id: 12,
+      name: "Gambeí Extra Brut 750cc",
+      price: 0,
+      image: "/images/espumantes/gambei.webp",
+    },
+    {
+      id: 13,
+      name: "Fresita 750cc",
+      price: 0,
+      image: "/images/espumantes/fresita.webp",
+    },
+    {
+      id: 14,
+      name: "Sidra 1888 Rosé 750cc",
+      price: 0,
+      image: "/images/espumantes/1888-rose.jpg",
+    },
+    {
+      id: 15,
+      name: "Sidra 1888 750cc",
+      price: 0,
+      image: "/images/espumantes/1888.webp",
+    },
+    {
+      id: 16,
+      name: "Sidra Real 750cc",
+      price: 0,
+      image: "/images/espumantes/sidra-real.jpg",
+    },
+    {
+      id: 17,
+      name: "Ananá Fizz Real 750cc",
+      price: 0,
+      image: "/images/espumantes/real-anana-fizz.webp",
+    },
+    {
+      id: 18,
+      name: "Sidra La Victoria 750cc",
+      price: 0,
+      image: "/images/espumantes/la-victoria.webp",
+    },
+    {
+      id: 19,
+      name: "Sidra La Farruca 750cc",
+      price: 0,
+      image: "/images/espumantes/la-farruca.jpeg",
+    },
+    {
+      id: 20,
+      name: "Ananá Fizz Del Valle 750cc",
+      price: 0,
+      image: "/images/espumantes/anana-del-valle.webp",
+    },
+  ];
+  
