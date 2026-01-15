@@ -20,7 +20,7 @@ export default function CervezasPage() {
         Cervezas
       </h1>
 
-      {/* Buscador estilizado */}
+      {/* Buscador */}
       <div className="max-w-6xl mx-auto">
         <div className="
           bg-white 

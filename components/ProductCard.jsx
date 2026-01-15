@@ -1,6 +1,9 @@
 "use client";
 
 import { useCartStore } from "@/store/cart";
+import { img } from "framer-motion/client";
+import Image from "next/image";
+
 
 export default function ProductCard({ product }) {
   const { id, name, price, image } = product;
@@ -69,12 +72,13 @@ export default function ProductCard({ product }) {
         </div>
       ) : (
         // Botón agregar
-        <button
-          onClick={() => addToCart(product)}
-          className="w-full mt-4 bg-gray-900 text-white py-2 rounded-lg hover:bg-black transition active:scale-95"
-        >
-          Agregar
-        </button>
+<button
+  onClick={() => addToCart({ ...product, quantity: 1, img: product.image })}
+  className="w-full mt-4 bg-gray-900 text-white py-2 rounded-lg hover:bg-black transition active:scale-95"
+>
+  Agregar
+</button>
+
       )}
     </div>
   );

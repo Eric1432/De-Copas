@@ -5,11 +5,11 @@ import { useCartStore } from "@/store/cart";
 
 
 const products = [
-  { id: 1, name: "Stella Artois 1l", price: 14500, img: "/images/cervezas/stella-litro.avif" },
-  { id: 2, name: "Pack 1890", price: 3200, img: "/images/cervezas/1890.avif" },
+  { id: 5, name: "Stella Artois 1l", price: 14500, img: "/images/cervezas/stella-litro.avif" },
+  { id: 6, name: "Pack 1890", price: 3200, img: "/images/cervezas/1890.avif" },
   
-  { id: 3, name: "Fond de Cave Reserva", price: 8900, img: "/images/vinos/fond-de-cave-reserva.avif" },
-  { id: 4, name: "Coca Cola 2,25l", price: 4800, img: "/images/bebidas/coca-cola-2-25.avif" },
+  { id: 7, name: "Fond de Cave Reserva", price: 8900, img: "/images/vinos/fond-de-cave-reserva.avif" },
+  { id: 8, name: "Coca Cola 2,25l", price: 4800, img: "/images/bebidas/coca-cola-2-25.avif" },
 ];
 
 export default function FeaturedProducts() {

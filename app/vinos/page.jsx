@@ -1,11 +1,15 @@
 "use client";
 
+import { useCartStore } from "@/store/cart";
 import { useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import { vinos } from "@/mock/vinos";
 import { Search } from "lucide-react";
+import  Image  from "next/image";
 
 export default function VinosPage() {
+    const addToCart = useCartStore((s) => s.addToCart);
+
     const [search, setSearch] = useState("");
 
     const filtered = vinos.filter((item) =>
@@ -20,7 +24,7 @@ return (
             Vinos
             </h1>
 
-            {/*Buscador estilizado*/}
+            {/*Buscador*/}
             <div className="max-w-6xl mx-auto">
                 <div className="bg-white border border-gray-300 rounded-xl px-5 py-3 flex items-center gap-3 shadow-sm transition focus-within:border-gray-400 focus-within:shadow-md">
                     <Search size={22}
@@ -38,10 +42,19 @@ return (
                 {/*Grid*/}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
                     {filtered.map((item) => (
-                        <ProductCard key={item.id}
+                        <ProductCard 
+                        key={item.id}
                         product={item}
-                        onAdd={()=>
-                        {}}/>
+                        onAdd={()=>{
+                            addToCart({
+                                id: item.id,
+                                name: item.name,
+                                price: item.price,
+                                img: item.image,
+                                quantity: 1,
+                            });
+                        }}
+                        />
                     ))}
                     </div>
                     </div>

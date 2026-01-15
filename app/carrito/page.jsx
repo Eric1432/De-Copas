@@ -13,7 +13,6 @@ export default function CartPage() {
 
   const [total, setTotal] = useState(0);
 
-  // Calculamos total directamente desde `cart` — más robusto
   useEffect(() => {
     const totalCalc = (cart || []).reduce(
       (acc, item) => acc + (item.quantity || 0) * Number(item.price || 0),
@@ -103,37 +102,6 @@ export default function CartPage() {
           </div>
 
           <p className="text-sm text-gray-500 mb-6">Envío y descuentos se verán al finalizar la compra.</p>
-          <button
-          type="button"
-          onClick={async () => {
-            console.log("Carrito antes de pagar:", cart);
-
-    try {
-      const res = await fetch("/api/create_preference", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: cart }),
-      });
-
-      const data = await res.json();
-      console.log("Respuesta del backend:", data);
-
-      if (data.init_point) {
-        window.location.href = data.init_point;
-      } else {
-        alert("Error al generar la preferencia de pago");
-      }
-    } catch (err) {
-      console.error("Error al llamar API:", err);
-      alert("Ocurrió un error, intenta nuevamente.");
-    }
-  }}
-  className="w-full bg-green-600 text-white py-3 rounded hover:bg-green-700 transition"
->
-  Finalizar y pagar
-</button>
-
-
         </aside>
       </div>
     </div>

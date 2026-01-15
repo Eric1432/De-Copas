@@ -1,3 +1,5 @@
+import { image, img } from "framer-motion/client";
+
 export const aperitivos = [
     {
       id: 1,

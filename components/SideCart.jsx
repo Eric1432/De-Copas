@@ -3,6 +3,7 @@
 import { useCartStore } from "@/store/cart";
 import { X } from "lucide-react";
 import { FiTrash2 } from "react-icons/fi";
+import Image from "next/image";
 
 export default function SideCart() {
   const isOpen = useCartStore((s) => s.isOpen);
@@ -14,35 +15,62 @@ export default function SideCart() {
   const removeItem = useCartStore((s) => s.removeFromCart);
 
   const total = items.reduce(
-    (acc, item) => acc + item.quantity * item.price,
+    (acc, item) => acc + Number(item.quantity) * Number(item.price),
     0
   );
+
+  const handleCheckout = async () => {
+    try {
+      const mpItems = items.map((item) => ({
+        title: item.name,
+        quantity: Number(item.quantity),
+        unit_price: Number(item.price),
+      }));
+
+      const res = await fetch("/api/create_preference", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: mpItems }),
+      });
+
+      const data = await res.json();
+
+      if (data.id) {
+        window.location.href = `https://www.mercadopago.com.ar/checkout/v1/redirect?preference-id=${data.id}`;
+      } else {
+        alert("Error al generar la preferencia");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Ocurrió un error");
+    }
+  };
 
   return (
     <div
       className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-50 transition-opacity ${
-        isOpen
-          ? "opacity-100 pointer-events-auto"
-          : "opacity-0 pointer-events-none"
+        isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       }`}
       onClick={closeCart}
     >
-      {/* Drawer */}
+      {/* DRAWER */}
       <div
-        className={`absolute right-0 top-0 h-full w-[380px] bg-white shadow-xl p-6 transition-transform duration-300
-          ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`absolute right-0 top-0 h-full w-[380px] bg-white shadow-xl transition-transform duration-300
+        ${isOpen ? "translate-x-0" : "translate-x-full"}`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* HEADER */}
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-gray-900">Tu carrito</h2>
+        <div className="bg-black text-white px-6 py-4 flex justify-between items-center">
+          <h2 className="text-lg font-semibold">
+            Tus productos ({items.length} ítems)
+          </h2>
           <button onClick={closeCart}>
-            <X size={26} className="text-gray-800" />
+            <X size={22} />
           </button>
         </div>
 
         {/* ITEMS */}
-        <div className="flex flex-col gap-4 overflow-y-auto h-[70vh] pr-1">
+        <div className="flex flex-col overflow-y-auto h-[70vh] px-6">
           {items.length === 0 && (
             <p className="text-center text-gray-500 mt-10">Carrito vacío</p>
           )}
@@ -50,78 +78,78 @@ export default function SideCart() {
           {items.map((item) => (
             <div
               key={item.id}
-              className="border border-gray-200 rounded-lg p-4 flex gap-4 shadow-sm"
+              className="flex gap-4 py-5 border-b border-gray-200"
             >
-              {/* IMAGE */}
-              <img
-                src={item.img}
-                className="w-16 h-16 object-contain"
-                alt={item.name}
-              />
+              {/* IMAGEN */}
+              <div className="relative w-20 h-24 flex-shrink-0 border border-gray-200 bg-white">
+                <Image
+                  src={item.img}
+                  alt={item.name}
+                  fill
+                  className="object-contain p-2"
+                />
+              </div>
 
               {/* INFO */}
               <div className="flex-1">
-                <p className="font-semibold text-gray-900 leading-tight">
+                <p className="font-semibold text-gray-900 leading-snug">
                   {item.name}
                 </p>
 
-                {/* Precio unitario (bordó suave + menos grueso) */}
                 <p className="text-[#8A1C1C] font-medium mt-1">
-                  ${item.price.toLocaleString("es-AR")}
+                  ${Number(item.price).toLocaleString("es-AR")}
                 </p>
 
-                {/* Cantidad label */}
-                <p className="text-gray-700 mt-1">Cantidad: {item.quantity}</p>
-
-                {/* Controles */}
-                <div className="flex items-center gap-3 mt-2">
+                {/* CONTADOR */}
+                <div className="inline-flex items-center border border-gray-400 mt-3">
                   <button
                     onClick={() => decreaseQty(item.id)}
-                    className="w-10 h-10 rounded-md border border-gray-400 flex items-center justify-center hover:bg-gray-200 transition"
+                    className="w-10 h-10 flex items-center justify-center text-xl text-gray-500 hover:bg-gray-100"
                   >
-                    <span className="text-lg font-bold text-gray-700">−</span>
+                    −
                   </button>
 
-                  <span className="w-4 text-center font-medium text-gray-900">
+                  <span className="w-10 text-center font-medium">
                     {item.quantity}
                   </span>
 
                   <button
                     onClick={() => increaseQty(item.id)}
-                    className="w-10 h-10 rounded-md border border-gray-400 flex items-center justify-center hover:bg-gray-200 transition"
+                    className="w-10 h-10 flex items-center justify-center text-xl text-gray-700 hover:bg-gray-100"
                   >
-                    <span className="text-lg font-bold text-gray-700">+</span>
+                    +
                   </button>
                 </div>
               </div>
 
-              {/* TOTAL Y TRASH */}
+              {/* TOTAL + DELETE */}
               <div className="flex flex-col items-end justify-between">
-                {/* Total por producto (bordó suave + menos grueso) */}
-                <p className="font-medium text-[#8A1C1C]">
-                  ${(item.price * item.quantity).toLocaleString("es-AR")}
-                </p>
-
                 <button
                   onClick={() => removeItem(item.id)}
-                  className="text-black hover:text-gray-700"
+                  className="text-gray-600 hover:text-black"
                 >
-                  <FiTrash2 size={22} />
+                  <FiTrash2 size={18} />
                 </button>
+
+                <p className="font-semibold text-gray-900">
+                  ${(item.price * item.quantity).toLocaleString("es-AR")}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
         {/* FOOTER */}
-        <div className="mt-6 border-t pt-4">
-          <div className="flex justify-between text-lg font-semibold text-gray-900 mb-3">
-            <span>Total:</span>
+        <div className="border-t px-6 py-4">
+          <div className="flex justify-between text-lg font-semibold mb-4">
+            <span>Total estimado</span>
             <span>${total.toLocaleString("es-AR")}</span>
           </div>
 
-          {/* Botón finalizar compra */}
-          <button className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-700 transition">
+          <button
+            onClick={handleCheckout}
+            className="w-full bg-black text-white py-4 rounded-full text-lg font-semibold hover:bg-gray-800 transition"
+          >
             Finalizar compra
           </button>
         </div>
