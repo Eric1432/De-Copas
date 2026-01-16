@@ -21,18 +21,8 @@ export default function CervezasPage() {
       </h1>
 
       {/* Buscador */}
-      <div className="max-w-6xl mx-auto">
-        <div className="
-          bg-white 
-          border border-gray-300 
-          rounded-xl 
-          px-5 py-3 
-          flex items-center gap-3 
-          shadow-sm 
-          transition 
-          focus-within:border-gray-400 
-          focus-within:shadow-md
-        ">
+      <div className="max-w-6xl mx-auto mb-8">
+        <div className="bg-white border border-gray-300 rounded-xl px-5 py-3 flex items-center gap-3 shadow-sm transition focus-within:border-gray-400 focus-within:shadow-md">
           <Search size={22} className="text-gray-400" />
 
           <input
@@ -45,10 +35,10 @@ export default function CervezasPage() {
         </div>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
+      {/* Grid de productos */}
+      <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-8">
         {filtered.map((item) => (
-          <ProductCard key={item.id} product={item} onAdd={() => {}} />
+          <ProductCard key={item.id} product={item} />
         ))}
       </div>
     </div>
