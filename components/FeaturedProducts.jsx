@@ -21,7 +21,7 @@ export default function FeaturedProducts() {
         Productos destacados
       </h2>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-8">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-8">
         {products.map((p) => (
           <div
             key={p.id}
@@ -33,7 +33,7 @@ export default function FeaturedProducts() {
                 src={p.img}
                 alt={p.name}
                 fill
-                sizes="(max-widht: 768px) 100vw, (max-width: 200px) 50vw 25vw"
+                sizes="(max-width: 768px) 50vw, (min-width: 769px) 25vw"
                 className="object-contain p-3"
               />
             </div>
@@ -51,7 +51,7 @@ export default function FeaturedProducts() {
             {/* Botón */}
             <button 
             onClick={() => addToCart({...p, quantity: 1})}
-            className="mt-auto w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition cursor-pointer">
+            className="mt-auto w-full bg-black text-white py-2 text-xs md-py-3 md:text-sm rounded-lg hover:bg-gray-800 transition cursor-pointer">
               Agregar al carrito
             </button>
           </div>
