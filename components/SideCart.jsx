@@ -1,6 +1,7 @@
 "use client";
 
 import { useCartStore } from "@/store/cart";
+import { useEffect } from "react";
 import { X } from "lucide-react";
 import { FiTrash2 } from "react-icons/fi";
 import Image from "next/image";
@@ -46,6 +47,17 @@ export default function SideCart() {
     }
   };
 
+  useEffect(() => {
+    if (isOpen){
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () =>{
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   return (
     <div
       className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-50 transition-opacity ${
@@ -55,7 +67,7 @@ export default function SideCart() {
     >
       {/* DRAWER */}
       <div
-        className={`absolute right-0 top-0 h-full w-[380px] bg-white shadow-xl transition-transform duration-300
+        className={`absolute right-0 top-0 h-[100dvh] w-full  max-w-[380px] bg-white shadow-xl transition-transform duration-300 flex flex-col
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}
         onClick={(e) => e.stopPropagation()}
       >
@@ -70,7 +82,7 @@ export default function SideCart() {
         </div>
 
         {/* ITEMS */}
-        <div className="flex flex-col overflow-y-auto h-[70vh] px-6">
+        <div className="flex-1 overflow-y-auto px-6">
           {items.length === 0 && (
             <p className="text-center text-gray-500 mt-10">Carrito vacío</p>
           )}
@@ -140,7 +152,7 @@ export default function SideCart() {
         </div>
 
         {/* FOOTER */}
-        <div className="border-t px-6 py-4">
+        <div className="border-t px-6 py-4 shrink-0">
           <div className="flex justify-between text-lg font-semibold mb-4">
             <span>Total estimado</span>
             <span>${total.toLocaleString("es-AR")}</span>

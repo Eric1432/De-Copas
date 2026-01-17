@@ -65,35 +65,34 @@ export default function Header() {
 
             {/* MOBILE MENU */}
             {open && (
-                <nav className="md:hidden bg-black text-white py-4 px-6 flex flex-col gap-4 border-t border-neutral-800">
-                    {nav.map((item) => (
-                        <Link
-                            key={item.href}
-                            href={item.href}
-                            onClick={() => setOpen(false)}
-                            className="block py-2 border-b border-neutral-700 hover:text-gray-300 transition"
-                        >
-                            {item.label}
-                        </Link>
-                    ))}
+  <nav className="md:hidden bg-black text-white px-6 pt-12 pb-16 flex flex-col gap-10">
+    {nav.map((item) => (
+      <Link
+        key={item.href}
+        href={item.href}
+        onClick={() => setOpen(false)}
+        className="text-xl font-semibold uppercase tracking-wide text-gray-300 hover:text-white transition"
+      >
+        {item.label}
+      </Link>
+    ))}
 
-                    {/* CARRITO MOBILE */}
-                    <button
-                        onClick={() => {
-                            setOpen(false);
-                            openCart();
-                        }}
-                        className="w-full text-left py-3 sm:py-2 mt-2 hover:text-gray-300 transition relative"
-                    >
-                        <ShoppingCart size={24} />
-                        {totalQty > 0 && (
-                            <span className="absolute top-0 left-6 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full">
-                                {totalQty}
-                            </span>
-                        )}
-                    </button>
-                </nav>
-            )}
+    {/* CARRITO MOBILE */}
+    <div className="pt-10">
+      <button
+        onClick={() => {
+          setOpen(false);
+          openCart();
+        }}
+        className="flex items-center gap-3 text-gray-300 hover:text-white transition"
+      >
+        <ShoppingCart size={24} />
+        <span className="uppercase tracking-wide">Carrito</span>
+      </button>
+    </div>
+  </nav>
+)}
+
         </header>
     );
 }
