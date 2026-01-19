@@ -1,5 +1,4 @@
 export const bebidas = [
-    // Coca Cola
     { id: 43, name: "Coca Cola 3L", price: 0, image: "/images/bebidas/coca-cola-3l.avif" },
     { id: 44, name: "Coca Cola 2.25L", price: 0, image: "/images/bebidas/coca-cola-2-25.avif" },
     { id: 45, name: "Coca Cola 1.75L", price: 0, image: "/images/bebidas/cocaa-cola-1-75.webp" },

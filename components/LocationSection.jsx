@@ -22,7 +22,7 @@ export default function LocationSection() {
           ></iframe>
         </div>
 
-        {/* Texto / Información */}
+        {/* Texto */}
         <div className="bg-gray-50 p-8 rounded-2xl shadow-lg border border-gray-200 h-full flex flex-col justify-between">
           <div>
             <h3 className="text-2xl font-bold mb-6 text-gray-800">Nuestro local</h3>

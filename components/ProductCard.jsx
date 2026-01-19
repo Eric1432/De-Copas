@@ -40,11 +40,10 @@ export default function ProductCard({ product }) {
           </p>
         </div>
 
-        {/* Contador + Total o Botón Agregar */}
         {quantity > 0 ? (
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-4">
 
-            {/* Contador */}
+
             <div className="inline-flex items-center border border-gray-300 rounded-lg w-fit">
               <button
                 onClick={() => decreaseQty(id)}

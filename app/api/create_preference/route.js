@@ -7,7 +7,7 @@ const client = new MercadoPagoConfig({
 
 export async function POST(req) {
   try {
-    const { items } = await req.json(); // <-- recibimos los items del frontend
+    const { items } = await req.json(); 
 
     if (!items || items.length === 0) {
       return NextResponse.json({ error: "Carrito vacío" }, { status: 400 });

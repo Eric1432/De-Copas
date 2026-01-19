@@ -36,7 +36,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* MENÚ RÁPIDO */}
+        {/* Menu */}
         <div className="mb-8 md:mb-0 mx-auto md:mx-0">
           <h3 className="text-lg sm:text-xl text-white font-semibold mb-4 tracking-wide">
             Categorías
@@ -77,7 +77,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* BARRA INFERIOR */}
+      {/* BARRA */}
       <div className="border-t border-neutral-800 py-6 text-center">
         <p className="text-xs sm:text-sm text-neutral-500">
           © {new Date().getFullYear()} De Copas — Todos los derechos reservados.

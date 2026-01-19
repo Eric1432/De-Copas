@@ -24,9 +24,8 @@ export default function FeaturedProducts() {
         {products.map((p) => (
           <div
             key={p.id}
-            className="bg-gray-50 rounded-xl p-4 shadow-sm md:hover:shadow-xl transition-shadow duration-300 flex flex-col"
-          >
-            {/* Imagen */}
+            className="bg-gray-50 rounded-xl p-4 shadow-sm md:hover:shadow-xl transition-shadow duration-300 flex flex-col">
+
             <div className="relative w-full aspect-square bg-white rounded-lg mb-3">
               <Image
                 src={p.img}
@@ -47,7 +46,6 @@ export default function FeaturedProducts() {
               ${p.price.toLocaleString("es-AR")}
             </p>
 
-            {/* Botón */}
             <button 
             onClick={() => addToCart({...p, quantity: 1})}
             className="mt-auto w-full bg-black text-white py-2 text-xs md:py-3 md:text-sm rounded-lg hover:bg-gray-800 transition cursor-pointer">

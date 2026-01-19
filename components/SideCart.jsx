@@ -65,13 +65,13 @@ export default function SideCart() {
       }`}
       onClick={closeCart}
     >
-      {/* DRAWER */}
+      {/* Drawer */}
       <div
         className={`absolute right-0 top-0 h-[100dvh] w-full  max-w-[380px] bg-white shadow-xl transition-transform duration-300 flex flex-col
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* HEADER */}
+        {/* Header */}
         <div className="bg-black text-white px-6 py-4 flex justify-between items-center">
           <h2 className="text-lg font-semibold">
             Tus productos ({items.length} ítems)
@@ -81,7 +81,7 @@ export default function SideCart() {
           </button>
         </div>
 
-        {/* ITEMS */}
+        {/* Items */}
         <div className="flex-1 overflow-y-auto px-6">
           {items.length === 0 && (
             <p className="text-center text-gray-500 mt-10">Carrito vacío</p>
@@ -92,7 +92,7 @@ export default function SideCart() {
               key={item.id}
               className="flex gap-4 py-5 border-b border-gray-200"
             >
-              {/* IMAGEN */}
+              {/* Imagen */}
               <div className="relative w-20 h-24 flex-shrink-0 border border-gray-200 bg-white">
                 <Image
                   src={item.img}
@@ -102,7 +102,7 @@ export default function SideCart() {
                 />
               </div>
 
-              {/* INFO */}
+              {/* Informacion */}
               <div className="flex-1">
                 <p className="font-semibold text-gray-900 leading-snug">
                   {item.name}
@@ -112,7 +112,7 @@ export default function SideCart() {
                   ${Number(item.price).toLocaleString("es-AR")}
                 </p>
 
-                {/* CONTADOR */}
+                {/* Contador */}
                 <div className="inline-flex items-center border border-gray-400 mt-3">
                   <button
                     onClick={() => decreaseQty(item.id)}
@@ -134,7 +134,7 @@ export default function SideCart() {
                 </div>
               </div>
 
-              {/* TOTAL + DELETE */}
+              {/* Total*/}
               <div className="flex flex-col items-end justify-between">
                 <button
                   onClick={() => removeItem(item.id)}
@@ -151,7 +151,7 @@ export default function SideCart() {
           ))}
         </div>
 
-        {/* FOOTER */}
+        {/* Footer */}
         <div className="border-t px-6 py-4 shrink-0">
           <div className="flex justify-between text-lg font-semibold mb-4">
             <span>Total estimado</span>

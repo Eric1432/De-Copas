@@ -34,7 +34,6 @@ export default function BebidasPage() {
         </div>
       </div>
 
-      {/* Grid de productos */}
       <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-8">
         {filtered.map((item) => (
           <ProductCard key={item.id} product={item} />
