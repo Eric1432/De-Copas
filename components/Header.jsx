@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Menu, X, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { useCartStore } from "@/store/cart";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -23,14 +23,15 @@ export default function Header() {
     { label: "Bebidas", href: "/bebidas" },
   ];
 
-  const sortedNav = [...nav].sort((a, b) => a.label.localeCompare(b.label, "es"));
-
+  const sortedNav = [...nav].sort((a, b) =>
+    a.label.localeCompare(b.label, "es")
+  );
 
   const container = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.1, 
+        staggerChildren: 0.1,
       },
     },
   };
@@ -40,11 +41,32 @@ export default function Header() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
+  const mobileMenuVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,   
+        ease: "easeOut",
+        staggerChildren: 0.08,
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -20,
+      transition: {
+        duration: 0.5,   
+        ease: "easeIn",
+      },
+    },
+  };
+  
+
   return (
     <header className="w-full bg-black text-white sticky top-0 z-50 border-b border-neutral-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-
-        {/* Logo animado */}
+        {/* Logo */}
         <motion.div
           className="text-3xl sm:text-4xl font-bold title hover:text-gray-300 cursor-pointer"
           variants={container}
@@ -52,7 +74,11 @@ export default function Header() {
           animate="visible"
         >
           {"De Copas".split(" ").map((word, index) => (
-            <motion.span key={index} variants={item} className="inline-block mr-2">
+            <motion.span
+              key={index}
+              variants={item}
+              className="inline-block mr-2"
+            >
               {word}
             </motion.span>
           ))}
@@ -73,7 +99,6 @@ export default function Header() {
             </motion.div>
           ))}
 
-          {/* Carrito desktop */}
           <motion.div variants={item}>
             <button
               onClick={openCart}
@@ -89,41 +114,49 @@ export default function Header() {
           </motion.div>
         </motion.nav>
 
-        {/* Boton mobile */}
+        {/* Botón mobile */}
         <button className="md:hidden" onClick={() => setOpen(!open)}>
           {open ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
       {/* Menu mobile */}
-      {open && (
-        <nav className="md:hidden bg-black text-white px-6 pt-12 pb-16 flex flex-col gap-10">
-          {sortedNav.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="text-xl font-semibold uppercase tracking-wide text-gray-300 hover:text-white transition"
-            >
-              {link.label}
-            </Link>
-          ))}
+      <AnimatePresence>
+        {open && (
+          <motion.nav
+            className="md:hidden bg-black text-white px-6 pt-12 pb-16 flex flex-col gap-10"
+            variants={mobileMenuVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            {sortedNav.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="text-xl font-semibold uppercase tracking-wide text-gray-300 hover:text-white transition"
+              >
+                {link.label}
+              </Link>
+            ))}
 
-          {/* Carrito mobile */}
-          <div className="pt-10">
-            <button
-              onClick={() => {
-                setOpen(false);
-                openCart();
-              }}
-              className="flex items-center gap-3 text-gray-300 hover:text-white transition"
-            >
-              <ShoppingCart size={24} />
-              <span className="uppercase tracking-wide">Carrito</span>
-            </button>
-          </div>
-        </nav>
-      )}
+            {/* Carrito mobile */}
+            <div className="pt-10">
+              <button
+                onClick={() => {
+                  setOpen(false);
+                  openCart();
+                }}
+                className="flex items-center gap-3 text-gray-300 hover:text-white transition"
+              >
+                <ShoppingCart size={24} />
+                <span className="uppercase tracking-wide">Carrito</span>
+              </button>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
