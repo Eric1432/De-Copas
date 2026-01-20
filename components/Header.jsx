@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, ShoppingCart } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react"; 
 import Link from "next/link";
 import { useCartStore } from "@/store/cart";
 import { motion, AnimatePresence } from "framer-motion";
@@ -66,23 +66,25 @@ export default function Header() {
   return (
     <header className="w-full bg-black text-white sticky top-0 z-50 border-b border-neutral-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <motion.div
-          className="text-3xl sm:text-4xl font-bold title hover:text-gray-300 cursor-pointer"
-          variants={container}
-          initial="hidden"
-          animate="visible"
-        >
-          {"De Copas".split(" ").map((word, index) => (
-            <motion.span
-              key={index}
-              variants={item}
-              className="inline-block mr-2"
-            >
-              {word}
-            </motion.span>
-          ))}
-        </motion.div>
+        
+        <Link href="/">
+          <motion.div
+            className="text-3xl sm:text-4xl font-bold title hover:text-gray-300 cursor-pointer flex"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {"De Copas".split(" ").map((word, index) => (
+              <motion.span
+                key={index}
+                variants={item}
+                className="inline-block mr-2"
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.div>
+        </Link>
 
         {/* Menu desktop */}
         <motion.nav

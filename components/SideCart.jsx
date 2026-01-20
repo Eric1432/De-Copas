@@ -48,26 +48,24 @@ export default function SideCart() {
   };
 
   useEffect(() => {
-    if (isOpen){
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () =>{
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
 
   return (
     <div
-      className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-50 transition-opacity ${
-        isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+      className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-50 transition-opacity cursor-pointer ${
+        isOpen
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
       }`}
       onClick={closeCart}
     >
       {/* Drawer */}
       <div
-        className={`absolute right-0 top-0 h-[100dvh] w-full  max-w-[380px] bg-white shadow-xl transition-transform duration-300 flex flex-col
+        className={`absolute right-0 top-0 h-[100dvh] w-full max-w-[380px] bg-white shadow-xl transition-transform duration-300 flex flex-col cursor-default
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}
         onClick={(e) => e.stopPropagation()}
       >
@@ -76,7 +74,7 @@ export default function SideCart() {
           <h2 className="text-lg font-semibold">
             Tus productos ({items.length} ítems)
           </h2>
-          <button onClick={closeCart}>
+          <button onClick={closeCart} className="cursor-pointer">
             <X size={22} />
           </button>
         </div>
@@ -102,7 +100,7 @@ export default function SideCart() {
                 />
               </div>
 
-              {/* Informacion */}
+              {/* Información */}
               <div className="flex-1">
                 <p className="font-semibold text-gray-900 leading-snug">
                   {item.name}
@@ -116,7 +114,7 @@ export default function SideCart() {
                 <div className="inline-flex items-center border border-gray-400 mt-3">
                   <button
                     onClick={() => decreaseQty(item.id)}
-                    className="w-10 h-10 flex items-center justify-center text-xl text-gray-500 hover:bg-gray-100"
+                    className="w-10 h-10 flex items-center justify-center text-xl text-gray-500 hover:bg-gray-100 cursor-pointer"
                   >
                     −
                   </button>
@@ -127,18 +125,18 @@ export default function SideCart() {
 
                   <button
                     onClick={() => increaseQty(item.id)}
-                    className="w-10 h-10 flex items-center justify-center text-xl text-gray-700 hover:bg-gray-100"
+                    className="w-10 h-10 flex items-center justify-center text-xl text-gray-700 hover:bg-gray-100 cursor-pointer"
                   >
                     +
                   </button>
                 </div>
               </div>
 
-              {/* Total*/}
+              {/* Total */}
               <div className="flex flex-col items-end justify-between">
                 <button
                   onClick={() => removeItem(item.id)}
-                  className="text-gray-600 hover:text-black"
+                  className="text-gray-600 hover:text-black cursor-pointer"
                 >
                   <FiTrash2 size={18} />
                 </button>
@@ -160,7 +158,7 @@ export default function SideCart() {
 
           <button
             onClick={handleCheckout}
-            className="w-full bg-black text-white py-4 rounded-full text-lg font-semibold hover:bg-gray-800 transition"
+            className="w-full bg-black text-white py-4 rounded-full text-lg font-semibold hover:bg-gray-800 transition cursor-pointer"
           >
             Finalizar compra
           </button>

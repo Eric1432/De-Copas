@@ -43,11 +43,12 @@ export default function ProductCard({ product }) {
         {quantity > 0 ? (
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-4">
 
-
+            {/* Contador */}
             <div className="inline-flex items-center border border-gray-300 rounded-lg w-fit">
               <button
                 onClick={() => decreaseQty(id)}
-                className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center hover:bg-gray-200 active:scale-95 rounded-l-lg transition"
+                className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center 
+                           hover:bg-gray-200 active:scale-95 rounded-l-lg transition cursor-pointer select-none"
               >
                 <span className="text-base md:text-lg font-bold text-gray-700">−</span>
               </button>
@@ -58,7 +59,8 @@ export default function ProductCard({ product }) {
 
               <button
                 onClick={() => increaseQty(id)}
-                className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center hover:bg-gray-200 active:scale-95 rounded-r-lg transition"
+                className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center 
+                           hover:bg-gray-200 active:scale-95 rounded-r-lg transition cursor-pointer select-none"
               >
                 <span className="text-base md:text-lg font-bold text-gray-700">+</span>
               </button>
@@ -72,8 +74,10 @@ export default function ProductCard({ product }) {
           </div>
         ) : (
           <button
-            onClick={() => addToCart({ ...product, quantity: 1, img: product.image })}
-            className="w-full mt-4 bg-gray-900 text-white py-2 text-xs md:py-3 md:text-sm rounded-lg hover:bg-black transition active:scale-95"
+            onClick={() =>
+              addToCart({ ...product, quantity: 1, img: product.image })
+            }
+            className="w-full mt-4 bg-gray-900 text-white py-2 text-xs md:py-3 md:text-sm rounded-lg hover:bg-black transition active:scale-95 cursor-pointer"
           >
             Agregar
           </button>
